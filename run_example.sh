@@ -1,0 +1,23 @@
+#!/bin/sh
+python /home/jupyter/nqa/run_nq.py \
+  --model_type bert \
+  --model_name_or_path bert-base-uncased \
+  --do_train \
+  --do_eval \
+  --evaluate_during_training \
+  --vocab_file ./vocab-nq.txt \
+  --do_lower_case \
+  --train_file /home/jupyter/kaggle_data/simplified-nq-train.jsonl \
+  --train_features /home/jupyter/nqa/data/google_train_features.hdf5 \
+  --dev_file /home/jupyter/nqa/data/my_tiny_dev.jsonl \
+  --dev_features /home/jupyter/nqa/data/my_tiny_dev_features.hdf5.hdf5 \
+  --per_gpu_train_batch_size 6 \
+  --per_gpu_eval_batch_size 6 \
+  --learning_rate 3e-5 \
+  --num_train_epochs 3 \
+  --max_seq_length 512 \
+  --doc_stride 128 \
+  --max_windows 48 \
+  --output_dir /home/jupyter/nqa/output_0118/ \
+  --logging_steps 5000 \
+  --save_steps 5000

@@ -1,0 +1,21 @@
+name: nq_transformers
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.7
+  - pytorch>=1.3
+  - torchvision
+  - cpuonly
+  - numpy
+  - pandas
+  - scikit-learn
+  - tensorboardX
+  - h5py
+  - tqdm
+  - docopt
+  - pip
+  - pip:
+    - transformers
+    - tensorflow==1.13.2

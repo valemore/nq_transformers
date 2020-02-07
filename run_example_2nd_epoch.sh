@@ -1,0 +1,25 @@
+#!/bin/sh
+python /home/jupyter/nqa/run_nq.py \
+  --model_type bert \
+  --model_name_or_path nq_model \
+  --from_checkpoint /home/jupyter/nqa/output_0118/ \
+  --vocab_file ./vocab-nq.txt \
+  --learning_rate 1e-5 \
+  --warmup_steps 0 \
+  --final_layers_lr 1e-4 \
+  --weight_decay 1e-4 \
+  --final_layers_wd 0.02 \
+  --do_train \
+  --do_lower_case \
+  --train_file /home/jupyter/kaggle_data/simplified-nq-train.jsonl \
+  --train_features /home/jupyter/nqa/data/google_train_features.hdf5 \
+  --per_gpu_train_batch_size 2 \
+  --gradient_accumulation_steps 4 \
+  --per_gpu_eval_batch_size 32 \
+  --num_train_epochs 1 \
+  --max_seq_length 512 \
+  --doc_stride 128 \
+  --max_windows 48 \
+  --output_dir /home/jupyter/nqa/output_wd2/ \
+  --logging_steps 1000 \
+  --save_steps 1000
